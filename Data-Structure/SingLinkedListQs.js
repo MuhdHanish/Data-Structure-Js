@@ -34,6 +34,7 @@ class SingLinkedList {
     } else {
      prev.next = curr.next;
     }
+    this.size--;
    }
    prev = curr;
    curr = curr.next;
@@ -65,6 +66,7 @@ class SingLinkedList {
       node.next = prev.next;
       prev.next = node;
     }
+    this.size++;
    }
    prev = curr;
    curr = curr.next;
@@ -87,6 +89,7 @@ class SingLinkedList {
      curr.next = node;
      this.tail = node;
     }
+    this.size++;
    }
    curr = curr.next;
   }
@@ -111,15 +114,14 @@ class SingLinkedList {
 }
 
 const sL = new SingLinkedList();
-sL.addNode(1);
+
 sL.addNode(2);
-sL.addNode(3);
-sL.addNode(4);
 sL.addNode(5);
 
-sL.addToPrev(4.5,5)
+sL.addToPrev(1,2)
+sL.addToNext(3,2)
+sL.addToPrev(4,5)
 sL.addToNext(6,5)
 
 console.log(sL.print());
-const reversedList = sL.reverse();
-console.log(reversedList.print());
+console.log(sL.reverse().print());
