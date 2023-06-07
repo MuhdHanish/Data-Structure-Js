@@ -63,19 +63,6 @@ class SingLinkedList {
    return values;
   }
  }
- reverse = () =>{
-  const reversedList = new SingLinkedList();
-  this.reverseHelper(this.head,reversedList);
-  return reversedList;
- }
- reverseHelper = (node,reversedList) =>{
-  if(node==null){
-   return;
-  }
-  this.reverseHelper(node.next,reversedList);
-  reversedList.addNode(node.data)
-  return reversedList
- }
 }
 
 const sL = new SingLinkedList();
@@ -86,5 +73,5 @@ sL.addNode(4);
 sL.addNode(5);
 
 console.log(sL.print());
-console.log(sL.reverse().print());
+
 
