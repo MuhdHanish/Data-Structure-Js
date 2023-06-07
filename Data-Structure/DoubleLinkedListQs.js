@@ -101,19 +101,32 @@ class DoubleLinkedList {
    curr = curr.next;
   }
  }
-
- 
-
+ removeDupes = () =>{
+  let curr = this.head;
+  while(curr!=null){
+   let Next = curr.next;
+   while(Next!=null && curr.data == Next.data){
+    Next = Next.next;
+   }
+   if(Next==this.tail&& curr.data == Next.data){
+    this.tail = curr;
+    this.tail.next = null;
+   }
+  curr = curr.next;
+  }
+ }
 }
 
 const dL = new DoubleLinkedList();
 
 dL.addNode(2);
 dL.addNode(2);
+dL.addNode(2);
+dL.addNode(2);
+dL.addNode(2);
+dL.addNode(2);
+dL.addNode(2);
 
-
-dL.addToPrev(1,2)
-dL.addToNext(3,2)
-
+dL.removeDupes();
 
 console.log(dL.print());
