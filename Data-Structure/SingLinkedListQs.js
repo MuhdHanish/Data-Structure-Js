@@ -72,6 +72,27 @@ class SingLinkedList {
   return;
  }
 
+ // add data in next node 
+ // data = new data added to next node 
+ // value = which values next we add this data
+ addToNext = (data,value) =>{
+  const node = new Node(data);
+  let curr = this.head;
+  while(curr){
+   if(curr.data==value){
+    if(curr.next){
+     node.next = curr.next;
+     curr.next = node;
+    }else{
+     curr.next = node;
+     this.tail = node;
+    }
+   }
+   curr = curr.next;
+  }
+  return;
+ }
+
  // reverse linked list using recursion method
  reverse = () => {
   const reversedList = new SingLinkedList();
@@ -97,6 +118,7 @@ sL.addNode(4);
 sL.addNode(5);
 
 sL.addToPrev(4.5,5)
+sL.addToNext(6,5)
 
 console.log(sL.print());
 const reversedList = sL.reverse();
