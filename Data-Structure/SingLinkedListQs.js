@@ -18,12 +18,11 @@ class SingLinkedList {
   const node = new Node(value)
   if (this.isEmpty()) {
    this.head = node;
-   this.tail = node;
   } else {
    this.tail.next = node;
-   this.tail = node
   }
-  this.size++
+  this.tail = node;
+  this.size++;
  }
  removeNode = (value) => {
   let curr = this.head;
@@ -31,13 +30,13 @@ class SingLinkedList {
   while (curr != null) {
    if (curr.data === value) {
     if (prev === null) {
-     this.head = curr.next
+     this.head = curr.next;
     } else {
-     prev.next = curr.next
+     prev.next = curr.next;
     }
    }
    prev = curr;
-   curr = curr.next
+   curr = curr.next;
   }
  }
  print = () => {
@@ -47,32 +46,58 @@ class SingLinkedList {
    values += curr.data + ' ';
    curr = curr.next;
   }
-  return values
+  return values;
  }
+
+ // add data in prev node 
+ // data = new data added to prev node 
+ // value = which values prev we add this data
+ addToPrev = (data,value) =>{
+  const node  = new Node(data)
+  let curr = this.head;
+  let prev = null;
+  while(curr){
+   if(curr.data==value){
+    if(prev==null){
+      node.next = this.head;
+      this.head = node;
+    }else{
+      node.next = prev.next;
+      prev.next = node;
+    }
+   }
+   prev = curr;
+   curr = curr.next;
+  }
+  return;
+ }
+
  // reverse linked list using recursion method
- reverse() {
+ reverse = () => {
   const reversedList = new SingLinkedList();
   this.reverseHelper(this.head, reversedList);
   return reversedList;
  }
 
- reverseHelper(node, reversedList) {
+ reverseHelper = (node, reversedList) => {
   if (node === null) {
    return;
   }
   this.reverseHelper(node.next, reversedList);
   reversedList.addNode(node.data);
-  return reversedList
+  return reversedList;
  }
 }
 
-const sL = new SingLinkedList()
-sL.addNode(1)
-sL.addNode(2)
-sL.addNode(3)
-sL.addNode(4)
-sL.addNode(5)
+const sL = new SingLinkedList();
+sL.addNode(1);
+sL.addNode(2);
+sL.addNode(3);
+sL.addNode(4);
+sL.addNode(5);
 
-console.log(sL.print())
+sL.addToPrev(4.5,5)
+
+console.log(sL.print());
 const reversedList = sL.reverse();
 console.log(reversedList.print());

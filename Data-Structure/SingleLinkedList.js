@@ -28,12 +28,11 @@ class SingLinkedList {
   const node = new Node(value);
   if (this.isEmpty()) {
    this.head = node;
-   this.tail = node;
   } else {
    this.tail.next = node;
-   this.tail = node;
   }
-  this.size++
+  this.tail = node;
+  this.size++;
  }
  removeNode = (value) => {
   let curr = this.head;

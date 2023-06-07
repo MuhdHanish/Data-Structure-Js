@@ -1,12 +1,3 @@
-/*
-set 
-get
-init
-travers
-insert
-delete
-*/
-
 const arr = [1,2,3,4,5]; // initalization
 console.log(arr);
 //O(n) TS
@@ -46,7 +37,7 @@ arr.splice(2,1,2.5); //replace at index 2
 console.log(arr);
 //O(n) TS
 
-arr.forEach(el=>console.log(el)) //travers
+arr.forEach(el=>console.log(el)); //travers
 //O(n) TS
 
 arr.reverse(); //reverse
