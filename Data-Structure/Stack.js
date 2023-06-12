@@ -7,6 +7,11 @@
 // Peek O(1)ST
 // Print O(n)T O(1)S
 
+// browser histroy tracking
+// undo operation
+// call stack in javascript runtime
+
+
 
 class Node {
  constructor(data) {
