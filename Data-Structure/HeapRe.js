@@ -14,7 +14,7 @@ class MinHeap {
   while (leftIdx <= endIdx) {
    let rightIdx = this.rightChild(currIdx);
    let idxToSwap;
-   if (rightIdx < endIdx && this.minHeap[rightIdx] < this.minHeap[leftIdx]) {
+   if (rightIdx <= endIdx && this.minHeap[rightIdx] < this.minHeap[leftIdx]) {
     idxToSwap = rightIdx;
    } else {
     idxToSwap = leftIdx;
