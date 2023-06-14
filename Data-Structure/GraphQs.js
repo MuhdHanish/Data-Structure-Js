@@ -40,6 +40,17 @@ class Graph {
    return false;
   }
  }
+ getEdges =(vertex) =>{
+  if(this.adjacancyList[vertex]){
+    let edges = '';
+    for(let edge of this.adjacancyList[vertex]){
+     edges += `${edge} `
+    }
+    return edges;
+  }else{
+   return -1;
+  }
+ }
  display = () =>{
   for(let vertex in this.adjacancyList) {
    console.log(`${vertex} -> ${[...this.adjacancyList[vertex]]}`)
@@ -53,11 +64,13 @@ graph.addVertex('B')
 graph.addVertex('C');
 
 graph.addEdge('A','C');
+graph.addEdge('A','B');
 console.log(graph.hasEdge('A','C'))
 
-graph.display()
+graph.display();
+console.log("edges of A -",graph.getEdges('A'))
 
 graph.removeVertex('A');
 console.log(graph.hasEdge('A', 'C'))
 
-graph.display()
+graph.display();
